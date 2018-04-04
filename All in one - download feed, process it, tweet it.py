@@ -18,7 +18,7 @@ api = twitter.Api(consumer_key='XXX',
                   access_token_secret='XXX')
 
 #Select how many days ahead to search for forthcoming publications.
-daysAhead = 14
+daysAhead = 7
 
 today = datetime.datetime.now().date()
 todayUntil = today + datetime.timedelta(days=daysAhead)
@@ -50,8 +50,8 @@ for each in e.findall('.//Series'):
                     tweetText=(TweetSeriesName+ " will be released tomorrow")
                 else:    
                     tweetText=(TweetSeriesName+ " will be released in "+ str(Days) + " days on "+ TweetDate)
-                print(tweetText)
-                #api.PostUpdate(tweetText)
+                #print(tweetText)
+                api.PostUpdate(tweetText)
             else:
                 pass
         else:
